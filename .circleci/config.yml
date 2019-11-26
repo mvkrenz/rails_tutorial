@@ -36,15 +36,14 @@ jobs:
           name: install dependencies
           command: |
             bundle install --jobs=4 --retry=3 --path vendor/bundle
-     - run: gem install bundler
      
-     - save_cache:
+      - save_cache:
           paths:
             - ./vendor/bundle
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
       # Database setup
-      # - run: bundle exec rake db:create
+      - run: gem install bundler
       # - run: bundle exec rake db:schema:load
 
       # run tests!
